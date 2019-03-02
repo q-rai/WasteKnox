@@ -15,18 +15,38 @@ sources:
       csv_kwargs:
         usecols: ['source', 'class', 'landfill_wt', 'date']
         parse_dates: ['date']
+  solid_waste_mulch:
+    description: Solid Waste Mulch
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/processed/Mulch.csv'
+      csv_kwargs:
+        parse_dates: ['Month']
+  solid_waste_stream:
+    description: Solid Waste Stream
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/processed/TotalWasteStream.csv'
+      csv_kwargs:
+        parse_dates: ['Month']
   solid_waste_landfill:
     description: Solid Waste Landfilled
     driver: csv
     args:
       urlpath: '{{ CATALOG_DIR }}/data/processed/Landfilled.csv'
+      csv_kwargs:
+        parse_dates: ['Month']
   solid_waste_commodity_recycling:
     description: Solid Waste Commodity Recycling
     driver: csv
     args:
       urlpath: '{{ CATALOG_DIR }}/data/processed/CommodityRecycling.csv'
+      csv_kwargs:
+        parse_dates: ['Month']
   solid_waste_recycled_diverted:
-    description: Solid Waste Commodity Recycling
+    description: Solid Waste Recycled Diverted
     driver: csv
     args:
       urlpath: '{{ CATALOG_DIR }}/data/processed/RecycledDiverted.csv'
+      csv_kwargs:
+        parse_dates: ['Month']

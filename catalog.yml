@@ -1,0 +1,32 @@
+sources:
+  recycling:
+    description: Recycling Flat
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/recycling_flat.csv'
+      csv_kwargs:
+        usecols: ['material', 'location', 'commodity_wt', 'date', 'location_type']
+        parse_dates: ['date']
+  landfill:
+    description: Landfill Flat
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/landfill_flat.csv'
+      csv_kwargs:
+        usecols: ['source', 'class', 'landfill_wt', 'date']
+        parse_dates: ['date']
+  solid_waste_landfill:
+    description: Solid Waste Landfilled
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/processed/Landfilled.csv'
+  solid_waste_commodity_recycling:
+    description: Solid Waste Commodity Recycling
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/processed/CommodityRecycling.csv'
+  solid_waste_recycled_diverted:
+    description: Solid Waste Commodity Recycling
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/processed/RecycledDiverted.csv'

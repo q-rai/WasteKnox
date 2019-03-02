@@ -1,61 +1,73 @@
-"(TS = Transfer Station,      HHW = Household Hazardous Waste)",Non-Commodity Recycling,Diverted,Month
+Type,Non-Commodity Recycling,Diverted,Month
 TS Scrap Metal*,33.56,,2018 JAN
 TS Tires,0,,2018 JAN
 TS Carpet,2.66,,2018 JAN
 HHW E-Waste,0,,2018 JAN
 HHW Mixed Recycling,1.17,,2018 JAN
+HHW Diverted,,1.25,2018 JAN
 TS Scrap Metal*,43.95,,2018 FEB
 TS Tires,7.78,,2018 FEB
 TS Carpet,3.71,,2018 FEB
 HHW E-Waste,0,,2018 FEB
 HHW Mixed Recycling,7.6,,2018 FEB
+HHW Diverted,,0,2018 FEB
 TS Scrap Metal*,51.52,,2018 MAR
 TS Tires,9.35,,2018 MAR
 TS Carpet,2.94,,2018 MAR
 HHW E-Waste,2.7,,2018 MAR
 HHW Mixed Recycling,1.3,,2018 MAR
+HHW Diverted,,0,2018 MAR
 TS Scrap Metal*,53.05,,2018 APRIL
 TS Tires,0,,2018 APRIL
 TS Carpet,6.2,,2018 APRIL
 HHW E-Waste,0,,2018 APRIL
 HHW Mixed Recycling,10.88,,2018 APRIL
+HHW Diverted,,0.6,2018 APRIL
 TS Scrap Metal*,48.01,,2018 MAY
 TS Tires,8.95,,2018 MAY
 TS Carpet,7.37,,2018 MAY
 HHW E-Waste,2.81,,2018 MAY
 HHW Mixed Recycling,6.13,,2018 MAY
+HHW Diverted,,1.16,2018 MAY
 TS Scrap Metal*,55.75,,2018 JUNE
 TS Tires,10.14,,2018 JUNE
 TS Carpet,14.75,,2018 JUNE
 HHW E-Waste,0,,2018 JUNE
 HHW Mixed Recycling,5.13,,2018 JUNE
+HHW Diverted,,0,2018 JUNE
 TS Scrap Metal*,58.9,,2018 JULY
 TS Tires,10.14,,2018 JULY
 TS Carpet,13.57,,2018 JULY
 HHW E-Waste,0,,2018 JULY
 HHW Mixed Recycling,10.05,,2018 JULY
+HHW Diverted,,1.3,2018 JULY
 TS Scrap Metal*,50.33,,2018 AUG
 TS Tires,9.06,,2018 AUG
 TS Carpet,0,,2018 AUG
 HHW E-Waste,0,,2018 AUG
 HHW Mixed Recycling,4.95,,2018 AUG
+HHW Diverted,,1.775,2018 AUG
 TS Scrap Metal*,45.6,,2018 SEPT
 TS Tires,0,,2018 SEPT
 TS Carpet,0,,2018 SEPT
 HHW E-Waste,3.63,,2018 SEPT
 HHW Mixed Recycling,0.84,,2018 SEPT
+HHW Diverted,,0,2018 SEPT
 TS Scrap Metal*,64.67,,2018 OCT
 TS Tires,10.36,,2018 OCT
 TS Carpet,0,,2018 OCT
 HHW E-Waste,0,,2018 OCT
 HHW Mixed Recycling,2.8,,2018 OCT
+HHW Diverted,,0,2018 OCT
 TS Scrap Metal*,28.66,,2018 NOV
 TS Tires,7.69,,2018 NOV
 TS Carpet,0,,2018 NOV
 HHW E-Waste,0,,2018 NOV
 HHW Mixed Recycling,9.8,,2018 NOV
+HHW Diverted,,2.3,2018 NOV
 TS Scrap Metal*,38.2,,2018 DEC
 TS Tires,9.5,,2018 DEC
 TS Carpet,0,,2018 DEC
 HHW E-Waste,0,,2018 DEC
 HHW Mixed Recycling,1.5,,2018 DEC
+HHW Diverted,,0,2018 DEC

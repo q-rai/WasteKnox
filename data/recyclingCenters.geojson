@@ -1,10 +1,10 @@
 {
 "type": "FeatureCollection",
 "features": [
-{ "type": "Feature", "properties": {"Name": "Chilhowee Park Recycling Center", "CSVName": "Magnolia & Alice", "Address": "210 Alice St NE, Knoxville, TN 37914"}, "geometry": { "type": "Point", "coordinates": [-83.8823438, 35.997323] } },
-{ "type": "Feature", "properties": {"Name": "Moody Ave Recycling Center", "CSVName": "225 Moody", "Address": "W Moody Ave, Knoxville, TN 37920"}, "geometry": { "type": "Point", "coordinates": [-83.9114075, 35.937433] } },
-{ "type": "Feature", "properties": {"Name": "Western Ave Recycling Center", "CSVName": "4440 Western Av.", "Address": "4440 Western Ave, Knoxville, TN 37921"}, "geometry": { "type": "Point", "coordinates": [-83.9883073, 35.9715024] } },
-{ "type": "Feature", "properties": {"Name": "Cedar Bluff Recycling Center", "CSVName": "341 Parkvillage", "Address": "341 Park Village Rd, Knoxville, TN 37923"}, "geometry": { "type": "Point", "coordinates": [-84.0877151, 35.9217974] } },
-{ "type": "Feature", "properties": {"Name": "Downtown Recycling Center", "CSVName": "227 Willow Av.", "Address": "227 Willow Ave, Knoxville, TN 37915"}, "geometry": { "type": "Point", "coordinates": [-83.9167315, 35.9702657] } }
+{ "type": "Feature", "properties": {"Name": "Chilhowee Park Recycling Center", "CSVName": "Magnolia & Alice", "Address": "210 Alice St NE, Knoxville, TN 37914", "Management": "City"}, "geometry": { "type": "Point", "coordinates": [-83.8823438, 35.997323] } },
+{ "type": "Feature", "properties": {"Name": "Moody Ave Recycling Center", "CSVName": "225 Moody", "Address": "W Moody Ave, Knoxville, TN 37920", "Management": "City"}, "geometry": { "type": "Point", "coordinates": [-83.9114075, 35.937433] } },
+{ "type": "Feature", "properties": {"Name": "Western Ave Recycling Center", "CSVName": "4440 Western Av.", "Address": "4440 Western Ave, Knoxville, TN 37921", "Management": "City"}, "geometry": { "type": "Point", "coordinates": [-83.9883073, 35.9715024] } },
+{ "type": "Feature", "properties": {"Name": "Cedar Bluff Recycling Center", "CSVName": "341 Parkvillage", "Address": "341 Park Village Rd, Knoxville, TN 37923", "Management": "City"}, "geometry": { "type": "Point", "coordinates": [-84.0877151, 35.9217974] } },
+{ "type": "Feature", "properties": {"Name": "Downtown Recycling Center", "CSVName": "227 Willow Av.", "Address": "227 Willow Ave, Knoxville, TN 37915", "Management": "City"}, "geometry": { "type": "Point", "coordinates": [-83.9167315, 35.9702657] } }
 ] 
 }

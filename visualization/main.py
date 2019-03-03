@@ -1,4 +1,5 @@
 import datetime as dt
+import random
 
 from bokeh.plotting import figure, output_file, curdoc
 from bokeh.layouts import layout, column
@@ -7,6 +8,12 @@ from bokeh.models.widgets import Panel, Tabs, DateRangeSlider, Div, RadioButtonG
 
 import intake
 
+# FACTS
+FACTS = [
+    '''How much? The answer is''',
+    '''An <h1>elephant</h1> does? The answer is''',
+    '''What is the <img src="/visualization/static/images/Humans.svg" height="20px"/> capital? Yeah im not <b>sure</b>''',
+]
 
 # UNIT
 UNIT_CONVERSION = {
@@ -147,21 +154,26 @@ def main():
 
     output_file('visualization.html')
 
+    main_panel = Panel(child=Div(text=open('visualization/static/main.html').read().format(random_fact=random.choice(FACTS))),
+                       title='Main Page')
+
     mulch_panel = Panel(child=layout([
+        source_filters(sources),
         [mulch_line_plot(sources), mulch_summary_data(sources)]
     ]), title="Mulch")
 
     commodity_recycling_panel = Panel(child=layout([
+        source_filters(sources),
         mulch_line_plot(sources),
         mulch_line_plot(sources)
     ]), title="Commodity Recycling")
 
     return layout([
-        source_filters(sources),
         Tabs(tabs=[
+            main_panel,
             mulch_panel,
             commodity_recycling_panel
-        ])
+        ], width=1000)
     ])
 
 

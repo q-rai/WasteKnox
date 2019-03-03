@@ -107,29 +107,22 @@
                 "coordinates": [-83.9883073, 35.9715024]
             }
         },{
-            "type": "Feature",
-            "properties": {
+            "type": "Feature", "properties": {
                 "Name": "Cedar Bluff Recycling Center",
                 "CSVName": "341 Parkvillage",
                 "Address": "341 Park Village Rd, Knoxville, TN 37923",
-                "Management": "City",
-
+                "Management": "City"
             }, "geometry": {
                 "type": "Point",
                 "coordinates": [-84.0877151, 35.9217974]
-                "Hours": {
-                    "Open 24/7": true,
-                }
-
-        },{
-            "type": "Feature",
-            "properties": {
+            }
+        }/*,{
+            "type": "Feature", "properties": {
                 "Name": "Downtown Recycling Center",
                 "CSVName": "227 Willow Av.",
                 "Address": "227 Willow Ave, Knoxville, TN 37915",
                 "Management": "City",
                 "Hours": {
-                    "Open 24/7": false,
                     "M-F": {
                         "Open": "5:30 am",
                         "Close": "4:00 pm"
@@ -143,7 +136,7 @@
                 "type": "Point",
                 "coordinates": [-83.9167315, 35.9702657]
             }
-        }]
+        }*/]
     }
     /*
     Address and hours of operation
@@ -165,16 +158,7 @@
     L.geoJSON(centers).addTo(mymap);
     var marker = L.marker([35.9702657, -83.9167315]).addTo(mymap);
     var hours = `
-      <table width="100%">
-        <tr width="50%">
-            <th>M-F</th>
-            <td>5:30 am - 4 pm</td>
-        </tr>
-        <tr width="50%">
-            <th>Sat</th>
-            <td>7 am - 4pm</td>
-        </tr>
-      </table>
+      <b>Open 24/7</b>
     `;
     var address = `
         <br>227 Willow Ave<br> Knoxville, TN 37915<br>

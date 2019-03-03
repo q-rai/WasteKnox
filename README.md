@@ -31,12 +31,16 @@ catalog = intake.open_catalog('catalog.yml')
 catalog.solid_waste_commodity_recycling
 ```
 
+![Intake Design](https://github.com/q-rai/WasteKnox/raw/master/visualization/static/images/intake.png)
+
 ## Dashboard Visualization (Bokeh + LeafletJS)
 
 Our client wanted to have accessible infographics about the current
 waste month by month, plotting, and resources to create a more
 educated "garbage geek culture". We thought a dynamic single page
 dashboard application would address the needs of our customer.
+
+![Bokeh Server](https://github.com/q-rai/WasteKnox/raw/master/visualization/static/images/bokeh_server.png)
 
  - filters: visitors can apply filters which update all graphs
     - date range of data

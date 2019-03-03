@@ -1,10 +1,71 @@
-<h1>Hello Main Page</h1>
+<html>
+    <head>
+    </head>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+    <style>
 
-<style>
-  p { color: red; }
-</style>
+    body{ background-color: #2d363b;}
+    div { color: #beaf7e; }
+    div.fact {
+        color: #beaf7e;
+        background-color: #395661;
+        border-radius: 4px;
+        padding: 16px;
+        margin: 10px;
+        margin-top: 20px;
+    }
+    div.other {
+        background-color: #6b755d;
+        border-radius: 4px;
+        padding: 16px;
+        margin: 10px;
+        margin-top: 20px;
+    }
+    h1 {
+    }
+    p {
+    }
+    p.fact {
+        color: #a8c8ce;
+        
+    }
+    p.other {
+        color: #b6c191;
+        
+    }
+    </style>
+    <body>
+        <h1>Welcome to WasteKnox</h1>
 
-
-This is some text +++random_fact+++
-
-<p>asdfasdfasdfasdfasdf</p>
+        <div class="fact">
+            <h2>Did you know?</h2>
+            <p class="fact">+++random_fact+++</p>
+        </div>
+        <div class="other">
+            <h2><i>You</i> can make a difference!</h2>
+            <img src="/visualization/static/images/mascot.png" height="300px" style='vertical-align: middle; float: right;'/>
+            <p class="other">
+            Every single person can play a role in improving Knoxville's waste management.
+            </p>
+            <h3>What can I recycle?</h3>
+            <p class="other">
+            You can learn more about recycling <a href="http://knoxvilletn.gov/government/city_departments_offices/public_service/solid_waste/recycling/drop_off_centers">here</a>!
+            </p>
+            <h3>Where can I recycle?</h3>
+            <p class="other">
+            Find a recycling center near you and find out what time it is open using our map:
+            </p>
+<!--            <div-->
+<!--                id="map"-->
+<!--                class = "leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"-->
+<!--                style="width: 600px; height: 400px"-->
+<!--                style="height: 180px"></div>-->
+            <iframe width="600px" height="400" src="https://www.google.com/maps/d/u/9/embed?mid=1g6QURAR3Hf_PDvP1ptgMKSHkERs" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            
+        </div>
+    </body>
+    
+</html>

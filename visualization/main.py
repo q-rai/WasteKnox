@@ -3,7 +3,7 @@ import random
 
 from bokeh.plotting import figure, output_file, curdoc
 from bokeh.layouts import layout, column
-from bokeh.models import ColumnDataSource, CDSView, IndexFilter
+from bokeh.models import ColumnDataSource, Legend
 from bokeh.models.widgets import Panel, Tabs, DateRangeSlider, Div, RadioButtonGroup
 
 import intake
@@ -55,6 +55,23 @@ def fetch_bokeh_sources(catalog_filename):
     sources = {
         'mulch': ColumnDataSource(dataframes['mulch_df']),
     }
+
+    comm_df = catalog.solid_waste_commodity_recycling.read()
+    comm_df = comm_df.rename(columns={
+        "Magnolia & Alice": "East Knoxville Recycling Center",
+        "225 Moody": "South Knoxville Recycling Center",
+        "4440 Western Av.": "North Knoxville Recycling Center",
+        "341 Parkvillage": "West Knoxville Recycling Center",
+        "227 Willow Av.": "Downtown Knoxville Recycling Center",
+        "Curbside City-Wide": "Curbside City-Wide Pickup",
+        "Downtown": "Downtown Pickup",
+        "KPD": "KPD", # what is this?
+        "Recycling Trailer": "Recycling Trailer"
+    })
+    for material in {'Glass', 'Cardboard', 'Mixed Paper', 'Plastics ("Commingled")'}:
+        dataframes[f'commodity_{material}'] = comm_df[comm_df.Type == material].fillna(0).pivot(index='Month', columns='Type')
+        sources[f'commodity_{material}'] = ColumnDataSource(dataframes[f'commodity_{material}'])
+
     return {'dataframes': dataframes, 'sources': sources}
 
 
@@ -97,6 +114,38 @@ def source_filters(sources):
     ELEMENT_CALLBACKS.append(_update_div_button_group)
 
     return [date_slider, radio_button_group, div_button_group_selection]
+
+
+def commodity_plot(sources, material):
+    comm_source = sources['sources'][material]
+    df = comm_source.to_df()
+
+    color_iter = iter(DISCRETE_COLORS)
+
+    plot = figure(plot_width=800, plot_height=400, title=f"Weight of {material.split('_')[-1]}",
+                  x_axis_type="datetime")
+
+    legend_items = []
+    for column_name in comm_source.column_names[2:-1]:
+        group_name, var_name = column_name.split('_')
+        current_line = plot.line(x='Month', y=column_name, source=comm_source, color=next(color_iter), **LINE_PARAMS)
+        if sum(df[column_name]) > 0:
+            legend_items.append((group_name, [current_line]))
+
+    legend = Legend(items=legend_items)
+    plot.add_layout(legend, 'right')
+    plot.legend.location = "bottom_center"
+    plot.legend.click_policy = "mute"
+    plot.xaxis.axis_label = "Month"
+    plot.yaxis.axis_label = "Pounds"
+    plot.toolbar.logo = None
+    plot.toolbar_location = None
+
+    def _update_plot_yaxis(**kwargs):
+        plot.yaxis.axis_label = UNIT_CONVERSION_MAP[kwargs['units']]
+
+    ELEMENT_CALLBACKS.append(_update_plot_yaxis)
+    return plot
 
 
 def mulch_line_plot(sources):
@@ -164,16 +213,21 @@ def main():
 
     commodity_recycling_panel = Panel(child=layout([
         source_filters(sources),
-        mulch_line_plot(sources),
-        mulch_line_plot(sources)
+        [commodity_plot(sources, 'commodity_Glass'), commodity_plot(sources, 'commodity_Cardboard')],
+        [commodity_plot(sources, 'commodity_Mixed Paper'), commodity_plot(sources, 'commodity_Plastics ("Commingled")')],
     ]), title="Commodity Recycling")
+
+    how_to_recycle_panel = Panel(child=Div(text=open('visualization/static/recycle.html').read()),
+                                 title='What can I Recycle?')
+
 
     return layout([
         Div(text=open('visualization/static/header.html').read()),
         Tabs(tabs=[
             main_panel,
             mulch_panel,
-            commodity_recycling_panel
+            commodity_recycling_panel,
+            how_to_recycle_panel,
         ], width=1000)
     ])
 

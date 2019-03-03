@@ -154,7 +154,7 @@ def main():
 
     output_file('visualization.html')
 
-    main_panel = Panel(child=Div(text=open('visualization/static/main.html').read().format(random_fact=random.choice(FACTS))),
+    main_panel = Panel(child=Div(text=open('visualization/static/main.html').read().replace('+++random_fact+++', random.choice(FACTS))),
                        title='Main Page')
 
     mulch_panel = Panel(child=layout([
@@ -169,6 +169,7 @@ def main():
     ]), title="Commodity Recycling")
 
     return layout([
+        Div(text=open('visualization/static/header.html').read()),
         Tabs(tabs=[
             main_panel,
             mulch_panel,
@@ -177,4 +178,5 @@ def main():
     ])
 
 
+curdoc().title = 'Custom Title!'
 curdoc().add_root(main())

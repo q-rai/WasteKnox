@@ -8,26 +8,22 @@ from bokeh.models.widgets import Panel, Tabs, DateRangeSlider, Div, RadioButtonG
 
 import intake
 
-def repeatImage(image, n):
+def repeatImage(image, n, height):
     images = ""
     for i in range(int(n)):
-        images+='<img src="/visualization/static/images/{}.svg" height="50px" margin="5px"/> '.format(image)
+        images+='<img src="/visualization/static/images/{}.svg" height="{}" margin="5px"/> '.format(image, height)
     return images
 
 learnMore = "You can learn more about how much citizens of Knoxville have recycled on this page!"
 # FACTS
 FACTS = [
-#         '''<p class=fact>Last year, people in Knoxville produced the weight of over {} {} in non-recyclable trash! <br /> <br /> {} <br /> <br /> <br /> {}</p>'''.format(94, "Sunspheres", repeatImage("Sunspheres", 94), learnMore),
-#         '''<p class=fact>East Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(3.5, "Space Shuttles", repeatImage("Space Shuttles", 3.5), learnMore),
-#         '''<p class=fact>South Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(5.6, "Space Shuttles", repeatImage("Space Shuttles", 5.6, learnMore),
-#         '''<p class=fact>North Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(3.6, "Space Shuttles", repeatImage("Space Shuttles", 3.6), learnMore),
-         '''<p class=fact>West Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(14.8, "Space Shuttles", repeatImage("Space Shuttles", 14.8), learnMore),
-#         '''<p class=fact>Downtown Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(3.1, "Space Shuttles", repeatImage("Space Shuttles", 3.1), learnMore),
-#         '''<p class=fact>Curb-Side Pickup collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(56.9, "Space Shuttles", repeatImage("Space Shuttles", 56.9), learnMore),
-#         '''<p class=fact></p>''',
-#         '''<p class=fact></p>''',
-#    '''An <h1>elephant</h1> does? The answer is''',
-#    '''What is the <img src="/visualization/static/images/Humans.svg" height="20px"/> capital? Yeah im not <b>sure</b>''',
+         '''<p class=fact>Last year, people in Knoxville produced the weight of over {} {} in non-recyclable trash! <br /> <br /> {} <br /> <br /> <br /> {}</p>'''.format(94, "Sunspheres", repeatImage("Sunspheres", 94, "70px"), learnMore),
+#         '''<p class=fact>East Knoxville Recycling Center collected 548,138 lbs of recyclables. That's the weight of over {} {}! <br /> <br /> {}  <br /> <br /> That's the same as {} {}! <br /> <br /> {} <br /> <br /> {} </p>'''.format(3.5, "Space Shuttles", repeatImage("Space Shuttles", 3.5, "70px"), 23, "School Buses", repeatImage("School Buses", 23, "30px"), learnMore),
+#         '''<p class=fact>South Knoxville Recycling Center collected 846,554 lbs of recyclables. That's the weight of over {} {}! <br /> <br /> {}  <br /> <br /> That's the same as {} {}! <br /> <br /> {} <br /> <br /> {}  </p>'''.format(5.6, "Space Shuttles", repeatImage("Space Shuttles", 5.6, "70px"), 36, "School Buses", repeatImage("School Buses", 36, "30px"), learnMore),
+#         '''<p class=fact>North Knoxville Recycling Center collected 543,890 lbs of recyclables. That's the weight of over {} {}! <br /> <br /> {}  <br /> <br /> That's the same as {} {}! <br /> <br /> {} <br /> <br /> {}</p>'''.format(3.6, "Space Shuttles", repeatImage("Space Shuttles", 3.6, "70px"), 23, "School Buses", repeatImage("School Buses", 23, "30px"), learnMore),
+         '''<p class=fact>West Knoxville Recycling Center collected 2,232,524 lbs of recyclables. That's the weight of over {} {}! <br /> <br /> {}  <br /> <br /> That's the same as {} {}! <br /> <br /> {} <br /> <br /> {} </p>'''.format(14.8, "Space Shuttles", repeatImage("Space Shuttles", 14.8, "70px"), 95, "School Buses", repeatImage("School Buses", 95, "30px"), learnMore),
+#         '''<p class=fact>Downtown Knoxville Recycling Center collected 470,937 lbs of recyclables. That's the weight of over {} {}! <br /> <br /> {}  <br /> <br /> That's the same as {} {}! <br /> <br /> {} <br /> <br /> {} </p>'''.format(3.1, "Space Shuttles", repeatImage("Space Shuttles", 3.1, "70px"), 20, "School Buses", repeatImage("School Buses", 20, "30px"), learnMore),
+         '''<p class=fact>Curb-Side Pickup collected 8,538,391 lbs of recyclables. That's the weight of over {} {}! <br /> <br /> {}  <br /> <br /> That's the same as {} {}! <br /> <br /> {}  <br /> <br /> or {} {}! <br /> <br /> {} <br /> <br /> {} </p>'''.format(7.1, "Sunspheres", repeatImage("Sunspheres", 7.1, "70px"), 56.9, "Space Shuttles", repeatImage("Space Shuttles", 56.9, "70px"), 363, "School Buses", repeatImage("School Buses", 363, "30px"), learnMore),
 ]
 
 # UNIT

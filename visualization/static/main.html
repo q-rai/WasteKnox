@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-    <head>
-
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-    crossorigin=""/>
-    </head>
-<!--    <link rel="stylesheet" href="style.css">-->
     <style>
 
     body{ background-color: #2d363b;}
@@ -52,7 +43,6 @@
         color: #b6c191;
     }
     </style>
-    <body>
         <h1>Welcome to WasteKnox</h1>
 
         <div class="fact">
@@ -61,7 +51,7 @@
         </div>
         <div class="other">
             <h2><i>You</i> can make a difference!</h2>
-            
+
             <img src="/visualization/static/images/mascot.png" height="300px" style='vertical-align: middle; float: right;'/>
             <p class="other">
             Every single person can become a Garbage Geek and play a role in improving Knoxville's waste management.
@@ -72,69 +62,7 @@
             </p>
             <h3>Where can I recycle?</h3>
             <p class="other">
-            Find a recycling center near you and find out what time it is open using our map:
+                Find a recycling center near you and find out what time it is open using our map:
             </p>
-            <div
-                id="map"
-                class = "leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
-                style="width: 600px; height: 400px"
-                style="height: 180px">
-            </div>
-            
-        </div>
-    </body>
-<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-   crossorigin=""></script>
 
-<script type="text/javascript">
-
-    var mymap = L.map('map',{
-        center: [35.99245209055831, -83.92250061035156],
-        zoom: 11
-    });//.setView([35.940506, -84.272869], 12);
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmdyb3ZlMDEiLCJhIjoiY2pzcnlrNnVlMTAwaDQ0b3hmOGp0dHA1MCJ9.XMxGp2y3fJ0sww3CKGz0Yw', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoiYmdyb3ZlMDEiLCJhIjoiY2pzcnlrNnVlMTAwaDQ0b3hmOGp0dHA1MCJ9.XMxGp2y3fJ0sww3CKGz0Yws'
-    }).addTo(mymap);
-
-    var hours = `
-      <b>Open 24/7</b>
-    `;
-    //Willow
-    var willow = L.marker([35.9702657, -83.9167315]).addTo(mymap);
-    var address = `
-        <br>227 Willow Ave<br> Knoxville, TN 37915<br>
-    `;
-    willow.bindPopup("<b>Downtown Recycling Center</b>"+ address + hours);
-    //Cedar Bluff
-    var cedar_bluff = L.marker([35.9217974, -84.0877151]).addTo(mymap);
-    var address = `
-        <br>341 Park Village Rd<br> Knoxville, TN 37923<br>
-    `;
-    cedar_bluff.bindPopup("<b>Cedar Bluff Recycling Center</b>"+ address + hours);
-    // Western Ave
-    var western_ave = L.marker([35.9715024, -83.9883073]).addTo(mymap);
-    var address = `
-        <br>4440 Western Ave<br>Knoxville, TN 37921<br>
-    `;
-    western_ave.bindPopup("<b>Western Ave Recycling Center</b>"+ address + hours);
-    // Moody Ave Recycling
-    var moody_av = L.marker([35.937433, -83.9114075]).addTo(mymap);
-    var address = `
-        <br>225 Moody<br>Knoxville, TN 37920<br>
-    `;
-    moody_av.bindPopup("<b>Moody Ave Recycling Center</b>"+ address + hours);
-    // Chilhowee Park
-    var chilhowee = L.marker([35.997323, -83.8823438]).addTo(mymap);
-    var address = `
-        <br>210 Alice St NE<br>Knoxville, TN 37914<br>
-    `;
-    chilhowee.bindPopup("<b>Chilhowee Park Recycling Center</b>"+ address + hours);
-
-</script>
-
-
-</html>
+            <iframe width="600px" height="400" src="https://www.google.com/maps/d/u/9/embed?mid=1g6QURAR3Hf_PDvP1ptgMKSHkERs" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

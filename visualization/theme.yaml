@@ -1,15 +1,25 @@
 attrs:
   Figure:
-    background_fill_color: '#6b755d'
-    border_fill_color: '#ccddc1'
-    outline_line_color: '#2d363b'
+    background_fill_color: '#2d363b'
+    border_fill_color: '#395661'
+    outline_line_color: '#beaf7e'
   Grid:
     grid_line_dash: [6, 4]
     grid_line_alpha: 0.3
+    grid_line_color: "#beaf7e"
   Title:
-    text_color: "#2d363b"
+    text_color: "#beaf7e"
   Line:
     line_width: 4
   Legend:
-    background_fill_color: '#ccddc1'
+    background_fill_color: '#395661'
     background_fill_alpha: 1.0
+    border_line_color: "#beaf7e"
+    label_text_color: "#beaf7e"
+  Axis:
+    axis_label_text_color: "#beaf7e"
+    major_label_text_color: "#beaf7e"
+    axis_line_color: "#beaf7e"
+    major_tick_line_color: "#beaf7e"
+    minor_tick_line_color: "#beaf7e"
+text_color: "#beaf7e"

@@ -16,12 +16,14 @@ other contexts such as banks where the data resources are located in
 seperate databases and complex bussiness logic is required to produce
 interactive visualizations.
 
-## Data Catalog (Intake)
+## Data Processing and Data Catalog (Intake)
 
-The waste and resources department has their data in several locations
-(excel spreadsheets). A data catalog was used to unify the data as a
-single resource and expose the data as a dataframe. Allowing each
-datasource to be manipulated in the same way. Additionally it allow
+The waste and resources department has their data in one large excel 
+file containing multiple sheets with several matrices each for different 
+types of waste. We processed this excel sheet using pandas, saving the 
+data out into one csv file per matrix. A data catalog was used to unify 
+the data as a single resource and expose the data as a dataframe. Allowing 
+each datasource to be manipulated in the same way. Additionally it allow
 the data to update with each new month of data automatically.
 
 ```

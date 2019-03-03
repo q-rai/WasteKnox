@@ -10,8 +10,10 @@ import intake
 # UNIT
 UNIT_CONVERSION = {
     "Pounds": 1.0,
+    "Humans": 1 / 170.0,
     "Metric Tons": 1 / 2204.62,
-    "School Bus'": 1 / 23500,
+    "Elephants": 1 / 23500,
+    "School Buses": 1 / 23500,
     "Space Shuttles": 1 / 150000,
     "Sunspheres": 1 / (600*2204.62),
 }
@@ -68,18 +70,25 @@ def source_filters(sources):
 
     start_date = dt.datetime(year=2018, month=12, day=1)
     end_date = dt.datetime(year=2018, month=12, day=1)
-    date_slider = DateRangeSlider(start=_state['date_range'][0], end=_state['date_range'][1], value=_state['date_range'], step=1, title="Date Range")
+    date_slider = DateRangeSlider(start=_state['date_range'][0], end=_state['date_range'][1], value=_state['date_range'], step=1, title="Date Range", height=100)
     date_slider.on_change('value', _date_slider_handler)
 
     def _radio_button_group_handler(attr, old, new):
         _state['units'] = int(new)
         _handle_state_filter()
 
-    radio_button_group = RadioButtonGroup(labels=UNIT_CONVERSION_MAP, active=0, width=600)
+    radio_button_group = RadioButtonGroup(labels=UNIT_CONVERSION_MAP, active=0, width=700, height=100)
 
     radio_button_group.on_change('active', _radio_button_group_handler)
 
-    return [date_slider, radio_button_group]
+    div_button_group_selection = Div(text=f'<img src="/visualization/static/images/{UNIT_CONVERSION_MAP[_state["units"]]}.svg" height="100px"/>', height=100)
+
+    def _update_div_button_group(**kwargs):
+        units = UNIT_CONVERSION_MAP[kwargs['units']]
+        div_button_group_selection.text = f'<img src="/visualization/static/images/{units}.svg" height="100px"/>'
+    ELEMENT_CALLBACKS.append(_update_div_button_group)
+
+    return [date_slider, radio_button_group, div_button_group_selection]
 
 
 def mulch_line_plot(sources):
@@ -97,6 +106,8 @@ def mulch_line_plot(sources):
 
     plot.xaxis.axis_label = "Month"
     plot.yaxis.axis_label = "Pounds"
+    plot.toolbar.logo = None
+    plot.toolbar_location = None
 
     def _update_plot_yaxis(**kwargs):
         plot.yaxis.axis_label = UNIT_CONVERSION_MAP[kwargs['units']]
@@ -108,8 +119,9 @@ def mulch_line_plot(sources):
 def mulch_summary_data(sources):
     df = sources['sources']['mulch'].to_df()
     message = '''
-      <h3>{units} of Brush: {bunch_sum:6.4f}</h3>
-      <h3>{units} of Leaves: {leaves_sum:6.4f}</h3>
+      <h2>Totals</h2>
+      <h3>Brush: {bunch_sum:6.4f} [{units}]</h3>
+      <h3>Leaves: {leaves_sum:6.4f} [{units}]</h3>
     '''
     mulch_summary = Div(text=message.format(
         units=UNIT_CONVERSION_MAP[0],
@@ -135,7 +147,7 @@ def main():
     output_file('visualization.html')
 
     mulch_panel = Panel(child=layout([
-        mulch_line_plot(sources), mulch_summary_data(sources)
+        [mulch_line_plot(sources), mulch_summary_data(sources)]
     ]), title="Mulch")
 
     commodity_recycling_panel = Panel(child=layout([

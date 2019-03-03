@@ -8,3 +8,11 @@
 3. Switch to the new environment: `source activate hackathon`
 
 4. Add the environment to your jupyter: `python -m ipykernel install --user --name hackathon --display-name "Hackathon"`. 
+
+
+
+# Production
+
+```
+bokeh serve --show visualization
+```

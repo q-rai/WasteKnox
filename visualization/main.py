@@ -169,6 +169,7 @@ def main():
     ]), title="Commodity Recycling")
 
     return layout([
+        Div(text=open('visualization/static/header.html').read()),
         Tabs(tabs=[
             main_panel,
             mulch_panel,

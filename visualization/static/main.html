@@ -1,10 +1,11 @@
-<html>
+<!DOCTYPE html>
     <head>
-    </head>
-    
+
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
     integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
     crossorigin=""/>
+    </head>
     <style>
 
     body{ background-color: #2d363b;}
@@ -98,41 +99,33 @@
         accessToken: 'pk.eyJ1IjoiYmdyb3ZlMDEiLCJhIjoiY2pzcnlrNnVlMTAwaDQ0b3hmOGp0dHA1MCJ9.XMxGp2y3fJ0sww3CKGz0Yws'
     }).addTo(mymap);
 
-
-    //L.geoJSON(centers).addTo(mymap);
-
     var hours = `
       <b>Open 24/7</b>
     `;
-
     //Willow
     var willow = L.marker([35.9702657, -83.9167315]).addTo(mymap);
     var address = `
         <br>227 Willow Ave<br> Knoxville, TN 37915<br>
     `;
     willow.bindPopup("<b>Downtown Recycling Center</b>"+ address + hours);
-
     //Cedar Bluff
     var cedar_bluff = L.marker([35.9217974, -84.0877151]).addTo(mymap);
     var address = `
         <br>341 Park Village Rd<br> Knoxville, TN 37923<br>
     `;
     cedar_bluff.bindPopup("<b>Cedar Bluff Recycling Center</b>"+ address + hours);
-
     // Western Ave
     var western_ave = L.marker([35.9715024, -83.9883073]).addTo(mymap);
     var address = `
         <br>4440 Western Ave<br>Knoxville, TN 37921<br>
     `;
     western_ave.bindPopup("<b>Western Ave Recycling Center</b>"+ address + hours);
-
     // Moody Ave Recycling
     var moody_av = L.marker([35.937433, -83.9114075]).addTo(mymap);
     var address = `
         <br>225 Moody<br>Knoxville, TN 37920<br>
     `;
     moody_av.bindPopup("<b>Moody Ave Recycling Center</b>"+ address + hours);
-
     // Chilhowee Park
     var chilhowee = L.marker([35.997323, -83.8823438]).addTo(mymap);
     var address = `

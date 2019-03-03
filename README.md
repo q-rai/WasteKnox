@@ -40,7 +40,7 @@ waste month by month, plotting, and resources to create a more
 educated "garbage geek culture". We thought a dynamic single page
 dashboard application would address the needs of our customer.
 
-![Bokeh Server](https://github.com/q-rai/WasteKnox/raw/master/visualization/static/images/bokeh_server.png)
+![Bokeh Server](https://github.com/q-rai/WasteKnox/raw/master/visualization/static/images/bokeh_server.svg)
 
  - filters: visitors can apply filters which update all graphs
     - date range of data

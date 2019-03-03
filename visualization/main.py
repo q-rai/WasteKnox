@@ -50,10 +50,10 @@ def fetch_bokeh_sources(catalog_filename):
     """
     catalog = intake.open_catalog(catalog_filename)
     dataframes = {
-        'mulch_df': catalog.solid_waste_mulch.read().pivot(index='Month', columns='Type')
+        'mulch': catalog.solid_waste_mulch.read().pivot(index='Month', columns='Type')
     }
     sources = {
-        'mulch': ColumnDataSource(dataframes['mulch_df']),
+        'mulch': ColumnDataSource(dataframes['mulch']),
     }
 
     comm_df = catalog.solid_waste_commodity_recycling.read()
@@ -77,11 +77,12 @@ def fetch_bokeh_sources(catalog_filename):
 
 def source_filters(sources):
     def _handle_state_filter():
-        df = sources['dataframes']['mulch_df']
-        df = df[(df.index >= _state['date_range'][0]) & (df.index <= _state['date_range'][1])]
-        units = UNIT_CONVERSION_MAP[_state['units']]
-        df = df * UNIT_CONVERSION[units]
-        sources['sources']['mulch'].data = ColumnDataSource(df).data
+        for fullname in sources['dataframes']:
+            df = sources['dataframes'][fullname]
+            df = df[(df.index >= _state['date_range'][0]) & (df.index <= _state['date_range'][1])]
+            units = UNIT_CONVERSION_MAP[_state['units']]
+            df = df * UNIT_CONVERSION[units]
+            sources['sources'][fullname].data = ColumnDataSource(df).data
 
         for callback in ELEMENT_CALLBACKS:
             callback(sources=sources, **_state)

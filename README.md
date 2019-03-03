@@ -31,6 +31,8 @@ catalog = intake.open_catalog('catalog.yml')
 catalog.solid_waste_commodity_recycling
 ```
 
+![Intake Design](https://github.com/q-rai/WasteKnox/raw/master/visualization/static/images/intake.png)
+
 ## Dashboard Visualization (Bokeh + LeafletJS)
 
 Our client wanted to have accessible infographics about the current

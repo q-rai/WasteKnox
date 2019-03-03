@@ -7,6 +7,7 @@ from bokeh.models.widgets import Panel, Tabs, DateRangeSlider, Div, RadioButtonG
 
 import intake
 
+
 # UNIT
 UNIT_CONVERSION = {
     "Pounds": 1.0,
@@ -21,7 +22,7 @@ UNIT_CONVERSION_MAP = list(UNIT_CONVERSION.keys())
 
 
 # THEME
-DIVERGENT_COLORS = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00']
+DISCRETE_COLORS =  ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00", "#ffff33", "#a65628", "#f781bf", "#999999"]
 LINE_PARAMS = {'line_width': 2}
 
 
@@ -94,7 +95,7 @@ def source_filters(sources):
 def mulch_line_plot(sources):
     mulch_source = sources['sources']['mulch']
 
-    color_iter = iter(DIVERGENT_COLORS)
+    color_iter = iter(DISCRETE_COLORS)
 
     plot = figure(plot_width=1200, plot_height=400,
                   title="Tons of Leaves/Brush by Month", x_axis_type="datetime")

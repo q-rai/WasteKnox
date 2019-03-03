@@ -11,8 +11,8 @@ import intake
 UNIT_CONVERSION = {
     "Pounds": 1.0,
     "Metric Tons": 1 / 2204.62,
-    "School Bus": 1 / 23500,
-    "Space Shuttle": 1 / 150000,
+    "School Bus'": 1 / 23500,
+    "Space Shuttles": 1 / 150000,
     "Sunspheres": 1 / (600*2204.62),
 }
 UNIT_CONVERSION_MAP = list(UNIT_CONVERSION.keys())
@@ -24,6 +24,13 @@ LINE_PARAMS = {'line_width': 2}
 
 
 # GLOBALS (TO MODIFY PLOTS/DIVS)
+_state = {
+    'date_range': (
+        dt.datetime(year=2018, month=1, day=1),
+        dt.datetime(year=2018, month=12, day=1)),
+    'units': 0,
+}
+
 ELEMENT_CALLBACKS = []
 
 
@@ -42,13 +49,6 @@ def fetch_bokeh_sources(catalog_filename):
 
 
 def source_filters(sources):
-    _state = {
-        'date_range': (
-            dt.datetime(year=2018, month=1, day=1),
-            dt.datetime(year=2018, month=12, day=1)),
-        'units': 0,
-    }
-
     def _handle_state_filter():
         df = sources['dataframes']['mulch_df']
         df = df[(df.index >= _state['date_range'][0]) & (df.index <= _state['date_range'][1])]
@@ -107,12 +107,22 @@ def mulch_line_plot(sources):
 
 def mulch_summary_data(sources):
     df = sources['sources']['mulch'].to_df()
-    message = f'<h3>Tons of Leaves: {len(df)}</h3>'
-    mulch_summary = Div(text=message, width=200, height=50)
+    message = '''
+      <h3>{units} of Brush: {bunch_sum:6.4f}</h3>
+      <h3>{units} of Leaves: {leaves_sum:6.4f}</h3>
+    '''
+    mulch_summary = Div(text=message.format(
+        units=UNIT_CONVERSION_MAP[0],
+        bunch_sum=df["Mulch_Brush"].sum(),
+        leaves_sum=df["Mulch_Leaves"].sum(),
+        width=400, height=100))
 
     def _update_mulch_summary(**kwargs):
         df = kwargs['sources']['sources']['mulch'].to_df()
-        mulch_summary.text = f'<h3>Tons of Leaves: {len(df)}</h3>'
+        mulch_summary.text = message.format(
+            units=UNIT_CONVERSION_MAP[kwargs['units']],
+            bunch_sum=df["Mulch_Brush"].sum(),
+            leaves_sum=df["Mulch_Leaves"].sum())
 
     ELEMENT_CALLBACKS.append(_update_mulch_summary)
     return mulch_summary

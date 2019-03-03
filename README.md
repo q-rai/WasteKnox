@@ -38,20 +38,32 @@ catalog.solid_waste_commodity_recycling
 Our client wanted to have accessible infographics about the current
 waste month by month, plotting, and resources to create a more
 educated "garbage geek culture". We thought a dynamic single page
-dashboard application would address the needs of our customer.
+dashboard application would address the needs of our customer. Uses a
+bokeh python server running in background to provide richer
+interactive experience.
 
 ![Bokeh Server](https://github.com/q-rai/WasteKnox/raw/master/visualization/static/images/bokeh_server.png)
 
- - filters: visitors can apply filters which update all graphs
-    - date range of data
-    - change units that all plots are being calculated with
-    - all graphs dynamically update with filters
- - did you know questions python generated, randomly selected, and
-   update with current monthly data
- - autoupdating text fields within dashboard that are calculated from
-   data
- - python server running in background to provide richer interactive
-   experience
+### Filters
+
+visitors can apply filters which update all graphs:
+ - date range of data
+ - change units that all plots are being calculated with
+
+![Filters](https://github.com/q-rai/WasteKnox/raw/master/visualization/static/images/filters-demo.png)
+
+### Dynamic "Did you know questions?"
+
+Did you know questions python generated, randomly selected, and update
+with current monthly data.
+
+![Did you know?](https://github.com/q-rai/WasteKnox/raw/master/visualization/static/images/didyouknow.png)
+
+### Dynamic Text Fields
+
+Autoupdating text fields within dashboard that are calculated from
+data.
+
 
 # Development
 

@@ -8,11 +8,26 @@ from bokeh.models.widgets import Panel, Tabs, DateRangeSlider, Div, RadioButtonG
 
 import intake
 
+def repeatImage(image, n):
+    images = ""
+    for i in range(int(n)):
+        images+='<img src="/visualization/static/images/{}.svg" height="50px" margin="5px"/> '.format(image)
+    return images
+
+learnMore = "You can learn more about how much citizens of Knoxville have recycled on this page!"
 # FACTS
 FACTS = [
-    '''How much? The answer is''',
-    '''An <h1>elephant</h1> does? The answer is''',
-    '''What is the <img src="/visualization/static/images/Humans.svg" height="20px"/> capital? Yeah im not <b>sure</b>''',
+#         '''<p class=fact>Last year, people in Knoxville produced the weight of over {} {} in non-recyclable trash! <br /> <br /> {} <br /> <br /> <br /> {}</p>'''.format(94, "Sunspheres", repeatImage("Sunspheres", 94), learnMore),
+#         '''<p class=fact>East Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(3.5, "Space Shuttles", repeatImage("Space Shuttles", 3.5), learnMore),
+#         '''<p class=fact>South Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(5.6, "Space Shuttles", repeatImage("Space Shuttles", 5.6, learnMore),
+#         '''<p class=fact>North Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(3.6, "Space Shuttles", repeatImage("Space Shuttles", 3.6), learnMore),
+         '''<p class=fact>West Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(14.8, "Space Shuttles", repeatImage("Space Shuttles", 14.8), learnMore),
+#         '''<p class=fact>Downtown Knoxville Recycling Center collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(3.1, "Space Shuttles", repeatImage("Space Shuttles", 3.1), learnMore),
+#         '''<p class=fact>Curb-Side Pickup collected the weight of over {} {} in recyclables! <br /> <br /> {} </p>'''.format(56.9, "Space Shuttles", repeatImage("Space Shuttles", 56.9), learnMore),
+#         '''<p class=fact></p>''',
+#         '''<p class=fact></p>''',
+#    '''An <h1>elephant</h1> does? The answer is''',
+#    '''What is the <img src="/visualization/static/images/Humans.svg" height="20px"/> capital? Yeah im not <b>sure</b>''',
 ]
 
 # UNIT
@@ -211,7 +226,7 @@ def main():
     mulch_panel = Panel(child=layout([
         source_filters(sources),
         [mulch_line_plot(sources), mulch_summary_data(sources)]
-    ]), title="Mulch")
+    ]), title="Compostable")
 
     commodity_recycling_panel = Panel(child=layout([
         source_filters(sources),
@@ -234,5 +249,5 @@ def main():
     ])
 
 
-curdoc().title = 'Custom Title!'
+curdoc().title = 'WasteKnox -- the Final Frontier of Recycling in Knoxville'
 curdoc().add_root(main())

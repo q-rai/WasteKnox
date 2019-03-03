@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Knoxville Waste</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin=""/>
+
+    </head>
+    <body>
+        <div
+            id="map"
+            class = "leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+            style="width: 600px; height: 400px"
+            style="height: 180px"></div>
+    </body>
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+
+<script type="text/javascript">
+    var knoxville = {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "properties": {
+                "STATEFP": "47",
+                "COUNTYFP": "093",
+                "COUNTYNS": "01639761",
+                "AFFGEOID": "0500000US47093",
+                "GEOID": "47093",
+                "NAME": "Knox",
+                "LSAD": "06",
+                "ALAND": 1316269093,
+                "AWATER": 45712672
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [ -84.272869, 35.940506 ],
+                        [ -84.195151, 35.993008 ],
+                        [ -84.058585, 36.036304 ],
+                        [ -84.094011, 36.068911 ],
+                        [ -83.941711, 36.186378 ],
+                        [ -83.905169, 36.160906 ],
+                        [ -83.732704, 36.164583 ],
+                        [ -83.699405, 36.109469 ],
+                        [ -83.66746, 36.080587 ],
+                        [ -83.70925, 36.093234 ],
+                        [ -83.673297, 36.038486 ],
+                        [ -83.650957, 35.986368 ],
+                        [ -83.794275, 35.887125 ],
+                        [ -83.850155, 35.842019 ],
+                        [ -83.994677, 35.883749 ],
+                        [ -84.006696, 35.848924 ],
+                        [ -84.145659, 35.849586 ],
+                        [ -84.166267, 35.805106 ],
+                        [ -84.179798, 35.820232 ],
+                        [ -84.263383, 35.89694 ],
+                        [ -84.271587, 35.910165 ],
+                        [ -84.272869, 35.940506 ]
+                    ]
+                ]
+            }
+        }]
+    }
+
+    var centers = {
+        "type": "FeatureCollection",
+        "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Chilhowee Park Recycling Center",
+                "CSVName": "Magnolia & Alice",
+                "Address": "210 Alice St NE, Knoxville, TN 37914",
+                "Management": "City"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-83.8823438, 35.997323]
+            }
+        },{
+            "type": "Feature",
+            "properties": {
+                "Name": "Moody Ave Recycling Center",
+                "CSVName": "225 Moody",
+                "Address": "W Moody Ave, Knoxville, TN 37920",
+                "Management": "City"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-83.9114075, 35.937433]
+            }
+        },{
+            "type": "Feature",
+            "properties": {
+                "Name": "Western Ave Recycling Center",
+                "CSVName": "4440 Western Av.",
+                "Address": "4440 Western Ave, Knoxville, TN 37921",
+                "Management": "City"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-83.9883073, 35.9715024]
+            }
+        },{
+            "type": "Feature",
+            "properties": {
+                "Name": "Cedar Bluff Recycling Center",
+                "CSVName": "341 Parkvillage",
+                "Address": "341 Park Village Rd, Knoxville, TN 37923",
+                "Management": "City",
+
+            }, "geometry": {
+                "type": "Point",
+                "coordinates": [-84.0877151, 35.9217974]
+                "Hours": {
+                    "Open 24/7": true,
+                }
+
+        },{
+            "type": "Feature",
+            "properties": {
+                "Name": "Downtown Recycling Center",
+                "CSVName": "227 Willow Av.",
+                "Address": "227 Willow Ave, Knoxville, TN 37915",
+                "Management": "City",
+                "Hours": {
+                    "Open 24/7": false,
+                    "M-F": {
+                        "Open": "5:30 am",
+                        "Close": "4:00 pm"
+                    },
+                    "Sat": {
+                        "Open": "7:00 am",
+                        "Close": "4:00 pm"
+                    }
+                }
+            }, "geometry": {
+                "type": "Point",
+                "coordinates": [-83.9167315, 35.9702657]
+            }
+        }]
+    }
+    /*
+    Address and hours of operation
+    */
+
+
+    var mymap = L.map('map',{
+        center: [35.99245209055831, -83.92250061035156],
+        zoom: 11
+    });//.setView([35.940506, -84.272869], 12);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmdyb3ZlMDEiLCJhIjoiY2pzcnlrNnVlMTAwaDQ0b3hmOGp0dHA1MCJ9.XMxGp2y3fJ0sww3CKGz0Yw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoiYmdyb3ZlMDEiLCJhIjoiY2pzcnlrNnVlMTAwaDQ0b3hmOGp0dHA1MCJ9.XMxGp2y3fJ0sww3CKGz0Yws'
+    }).addTo(mymap);
+
+    //L.geoJSON(knoxville).addTo(mymap);
+    L.geoJSON(centers).addTo(mymap);
+    var marker = L.marker([35.9702657, -83.9167315]).addTo(mymap);
+    var hours = `
+      <table width="100%">
+        <tr width="50%">
+            <th>M-F</th>
+            <td>5:30 am - 4 pm</td>
+        </tr>
+        <tr width="50%">
+            <th>Sat</th>
+            <td>7 am - 4pm</td>
+        </tr>
+      </table>
+    `;
+    var address = `
+        <br>227 Willow Ave<br> Knoxville, TN 37915<br>
+    `;
+    marker.bindPopup("<b>Downtown Recycling Center</b>"+ address + hours);
+
+
+
+</script>
+</html>

@@ -178,4 +178,5 @@ def main():
     ])
 
 
+curdoc().title = 'Custom Title!'
 curdoc().add_root(main())

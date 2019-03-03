@@ -19,6 +19,7 @@ FACTS = [
 UNIT_CONVERSION = {
     "Pounds": 1.0,
     "Humans": 1 / 170.0,
+    "Tons": 1/2000,
     "Metric Tons": 1 / 2204.62,
     "Elephants": 1 / 23500,
     "School Buses": 1 / 23500,

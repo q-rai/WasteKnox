@@ -1,0 +1,36 @@
+body{ background-color: #2d363b;}
+    div { color: #beaf7e; }
+    div.fact {
+        color: #beaf7e;
+        background-color: #395661;
+        border-radius: 4px;
+        padding: 16px;
+        margin: 10px;
+        margin-top: 20px;
+    }
+    div.other {
+        background-color: #6b755d;
+        border-radius: 4px;
+        padding: 16px;
+        margin: 10px;
+        margin-top: 20px;
+    }
+    div.landfill {
+        background-color: #8c805f;
+        border-radius: 4px;
+        padding: 16px;
+        margin: 10px;
+        margin-top: 20px;
+    }
+    h1 {
+    }
+    p {
+    }
+    p.fact {
+        color: #a8c8ce;
+        
+    }
+    p.other {
+        color: #b6c191;
+        
+    }

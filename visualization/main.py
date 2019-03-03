@@ -46,7 +46,6 @@ UNIT_CONVERSION_MAP = list(UNIT_CONVERSION.keys())
 
 # THEME
 DISCRETE_COLORS =  ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00", "#ffff33", "#a65628", "#f781bf", "#999999"]
-LINE_PARAMS = {'line_width': 2}
 
 
 # GLOBALS (TO MODIFY PLOTS/DIVS)
@@ -145,7 +144,7 @@ def commodity_plot(sources, material):
     legend_items = []
     for column_name in comm_source.column_names[2:-1]:
         group_name, var_name = column_name.split('_')
-        current_line = plot.line(x='Month', y=column_name, source=comm_source, color=next(color_iter), **LINE_PARAMS)
+        current_line = plot.line(x='Month', y=column_name, source=comm_source, color=next(color_iter))
         if sum(df[column_name]) > 0:
             legend_items.append((group_name, [current_line]))
 
@@ -174,9 +173,9 @@ def mulch_line_plot(sources):
                   title="Tons of Leaves/Brush by Month", x_axis_type="datetime")
 
     plot.line(x='Month', y='Mulch_Brush', source=mulch_source,
-              legend='Brush', color=next(color_iter), **LINE_PARAMS)
+              legend='Brush', color=next(color_iter))
     plot.line(x='Month', y='Mulch_Leaves', source=mulch_source,
-              legend='Leaves', color=next(color_iter), **LINE_PARAMS)
+              legend='Leaves', color=next(color_iter))
 
     plot.xaxis.axis_label = "Month"
     plot.yaxis.axis_label = "Pounds"

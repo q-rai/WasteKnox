@@ -1,0 +1,15 @@
+attrs:
+  Figure:
+    background_fill_color: 'blue'
+    border_fill_color: 'red'
+    outline_line_color: 'orange'
+  Grid:
+    grid_line_dash: [6, 4]
+    grid_line_alpha: 0.3
+  Title:
+    text_color: "white"
+  Line:
+    line_width: 4
+  Legend:
+    background_fill_color: 'purple'
+    background_fill_alpha: 1.0
